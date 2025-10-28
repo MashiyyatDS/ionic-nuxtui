@@ -13,9 +13,9 @@
 			</template>
 		</UDashboardSidebar>
 
-		<UDashboardPanel :ui="{ body: 'sm:p-2 p-2' }">
+		<UDashboardPanel :ui="{ body: 'sm:p-0 p-0' }">
 			<template #header>
-				<UDashboardNavbar title="Dashboard">
+				<UDashboardNavbar title="Application Name">
 					<template #leading>
 						<UDashboardSidebarCollapse />
 					</template>
@@ -23,7 +23,16 @@
 			</template>
 
 			<template #body>
-				<RouterView />
+				<div class="p-1">
+					<UNavigationMenu
+						:items="tabItems"
+						class="flex justify-center"
+						highlight-color="primary" />
+				</div>
+
+				<div class="p-2">
+					<RouterView />
+				</div>
 			</template>
 		</UDashboardPanel>
 	</UDashboardGroup>
@@ -71,5 +80,24 @@ const items = ref<NavigationMenuItem[][]>([
 			disabled: true,
 		},
 	],
+])
+
+const tabItems = ref([
+	{
+		icon: 'material-symbols:fastfood',
+		to: '/',
+	},
+	{
+		icon: 'material-symbols:account-circle',
+		to: '/profile',
+	},
+	{
+		icon: 'material-symbols:notifications',
+		to: 'https://github.com/nuxt/ui',
+	},
+	{
+		icon: 'material-symbols:shopping-cart',
+		to: 'https://github.com/nuxt/ui',
+	},
 ])
 </script>

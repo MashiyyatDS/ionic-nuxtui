@@ -49,7 +49,7 @@ export interface User {
 
 const users = ref<User[]>([])
 const getUsers = async () => {
-	const responseJson = await fetch('https://retoolapi.dev/2Uunkx/data')
+	const responseJson = await fetch('https://retoolapi.dev/Xb77XU/data')
 
 	const response = await responseJson.json()
 

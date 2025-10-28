@@ -16,8 +16,14 @@ const routes: Array<RouteRecordRaw> = [
 				name: 'IndexPage',
 				component: () => import('@/views/index.vue'),
 			},
+		],
+	},
+	{
+		path: '/profile',
+		component: () => import('@/layouts/DefaultLayout.vue'),
+		children: [
 			{
-				path: '/profile',
+				path: '',
 				name: 'Profile Page',
 				component: () => import('@/views/profile.vue'),
 			},
