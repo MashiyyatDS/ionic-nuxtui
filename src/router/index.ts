@@ -3,6 +3,11 @@ import { RouteRecordRaw } from 'vue-router'
 
 const routes: Array<RouteRecordRaw> = [
 	{
+		path: '/login',
+		name: 'LoginPage',
+		component: () => import('@/views/login.vue'),
+	},
+	{
 		path: '/',
 		component: () => import('@/layouts/DefaultLayout.vue'),
 		children: [
@@ -11,12 +16,17 @@ const routes: Array<RouteRecordRaw> = [
 				name: 'IndexPage',
 				component: () => import('@/views/index.vue'),
 			},
+			{
+				path: '/profile',
+				name: 'Profile Page',
+				component: () => import('@/views/profile.vue'),
+			},
 		],
 	},
 ]
 
 const router = createRouter({
-	history: createWebHistory(import.meta.env.BASE_URL),
+	history: createWebHistory(),
 	routes,
 })
 

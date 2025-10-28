@@ -17,6 +17,8 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     UApp: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/App.vue')['default']
+    UAuthForm: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/AuthForm.vue')['default']
+    UAvatar: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Avatar.vue')['default']
     UBadge: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Badge.vue')['default']
     UButton: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Button.vue')['default']
     UCard: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Card.vue')['default']
@@ -30,6 +32,7 @@ declare module 'vue' {
     UKbd: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Kbd.vue')['default']
     UModal: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Modal.vue')['default']
     UNavigationMenu: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/NavigationMenu.vue')['default']
+    UPageCard: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/PageCard.vue')['default']
     UTabs: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Tabs.vue')['default']
   }
 }
@@ -41,6 +44,8 @@ declare global {
   const RouterLink: typeof import('vue-router')['RouterLink']
   const RouterView: typeof import('vue-router')['RouterView']
   const UApp: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/App.vue')['default']
+  const UAuthForm: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/AuthForm.vue')['default']
+  const UAvatar: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Avatar.vue')['default']
   const UBadge: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Badge.vue')['default']
   const UButton: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Button.vue')['default']
   const UCard: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Card.vue')['default']
@@ -54,5 +59,6 @@ declare global {
   const UKbd: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Kbd.vue')['default']
   const UModal: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/Modal.vue')['default']
   const UNavigationMenu: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/NavigationMenu.vue')['default']
+  const UPageCard: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_8db7a8e2e5990586ce92c0e9ce4b546c/node_modules/@nuxt/ui/dist/runtime/components/PageCard.vue')['default']
   const UTabs: typeof import('./node_modules/.pnpm/@nuxt+ui@4.1.0_@babel+parse_e64fb39f037ff0af0e71bfcd993e8bf6/node_modules/@nuxt/ui/dist/runtime/components/Tabs.vue')['default']
 }
