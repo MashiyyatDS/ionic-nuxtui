@@ -13,7 +13,7 @@
 			</template>
 		</UDashboardSidebar>
 
-		<UDashboardPanel>
+		<UDashboardPanel :ui="{ body: 'sm:p-2 p-2' }">
 			<template #header>
 				<UDashboardNavbar title="Dashboard">
 					<template #leading>

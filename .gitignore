@@ -30,3 +30,9 @@ npm-debug.log*
 /platforms
 /plugins
 /www
+
+auto-imports.d.ts
+components.d.ts
+.env
+.env.staging
+.env.production
