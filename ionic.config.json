@@ -1,0 +1,7 @@
+{
+  "name": "md-project",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
