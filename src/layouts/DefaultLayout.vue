@@ -13,28 +13,66 @@
 			</template>
 		</UDashboardSidebar>
 
-		<UDashboardPanel :ui="{ body: 'sm:p-0 p-0' }">
+		<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 h-full bg-neutral-900' }">
 			<template #header>
-				<UDashboardNavbar title="Application Name">
-					<template #leading>
-						<UDashboardSidebarCollapse />
-					</template>
-				</UDashboardNavbar>
+				<div class="border-b border-default">
+					<div class="flex gap-1 p-2">
+						<ULink to="/profile">
+							<UAvatar
+								class="self-center"
+								src="https://media.licdn.com/dms/image/v2/D5603AQELfgzipMJ8cQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1732012492768?e=1763596800&v=beta&t=mNwlbNn4yNVF_Y5PM9_ujvINLpicAIVswyfzVye8Ojw" />
+						</ULink>
+
+						<UButton
+							label="Search"
+							icon="mdi-search"
+							@click="open = !open"
+							class="self-center w-full rounded-full"
+							:ui="{ label: 'text-[12px]' }"
+							variant="outline" />
+
+						<UChip inset color="error" text="5">
+							<UButton
+								icon="material-symbols:notifications-rounded"
+								variant="ghost"
+								class="rounded-full self-center"
+								size="md"
+								to="/notifications" />
+						</UChip>
+
+						<UButton
+							icon="solar:chat-round-dots-bold"
+							variant="ghost"
+							class="rounded-full self-center"
+							size="md"
+							to="/messages" />
+					</div>
+				</div>
 			</template>
 
 			<template #body>
-				<div class="p-1">
+				<RouterView />
+			</template>
+
+			<template #footer>
+				<div class="border-t border-default">
 					<UNavigationMenu
 						:items="tabItems"
-						class="flex justify-center"
-						highlight-color="primary" />
-				</div>
+						class="flex justify-center w-full"
+						highlight-color="primary">
+						<template #item="{ item }">
+							<div class="flex flex-col justify-center">
+								<UIcon :name="item.icon" class="text-lg self-center" />
 
-				<div class="p-2">
-					<RouterView />
+								<span class="self-center text-[11px]">{{ item.label }}</span>
+							</div>
+						</template>
+					</UNavigationMenu>
 				</div>
 			</template>
 		</UDashboardPanel>
+
+		<SearchDialog v-model:open="open" />
 	</UDashboardGroup>
 </template>
 
@@ -84,20 +122,27 @@ const items = ref<NavigationMenuItem[][]>([
 
 const tabItems = ref([
 	{
-		icon: 'material-symbols:fastfood',
+		icon: 'material-symbols-light:house-rounded',
 		to: '/',
+		label: 'Home',
 	},
 	{
-		icon: 'material-symbols:account-circle',
-		to: '/profile',
+		icon: 'material-symbols:fastfood',
+		to: '/orders',
+		label: 'Orders',
 	},
-	{
-		icon: 'material-symbols:notifications',
-		to: 'https://github.com/nuxt/ui',
-	},
+	//{
+	//	icon: 'material-symbols:notifications',
+	//	to: '/notifications',
+	//	chipped: true,
+	//	label: 'Notifications',
+	//},
 	{
 		icon: 'material-symbols:shopping-cart',
-		to: 'https://github.com/nuxt/ui',
+		to: '/cart',
+		label: 'Cart',
 	},
 ])
+
+const open = ref(false)
 </script>

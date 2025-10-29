@@ -5,6 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite",
+		"dev:staging": "vite --mode staging",
+		"dev:production": "vite --mode production",
 		"build": "vue-tsc && vite build",
 		"preview": "vite preview",
 		"test:e2e": "cypress run",

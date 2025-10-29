@@ -5,6 +5,7 @@
 		"types": ["@vue/test-utils"],
 		"paths": {
 			"@/*": ["./src/*"]
-		}
+		},
+		"module": "es2020"
 	}
 }

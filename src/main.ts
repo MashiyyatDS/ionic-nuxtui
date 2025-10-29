@@ -6,9 +6,12 @@ import '@/assets/css/main.css'
 
 const app = createApp(App)
 
+console.log(import.meta.env.VITE_APP_ENV)
+
 app.use(router)
 app.use(ui)
 
-router.isReady().then(() => {
-	app.mount('#app')
-})
+app.mount('#app')
+//router.isReady().then(() => {
+//	app.mount('#app')
+//})
