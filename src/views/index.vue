@@ -15,6 +15,7 @@
 
 		<div class="col-span-12" v-for="(user, key) in users" :key="key">
 			<UCard
+				@click="console.log(user)"
 				class="bg-neutral-800 rounded-none"
 				:ui="{
 					header: 'sm:p-2 p-2 flex justify-between',

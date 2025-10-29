@@ -131,12 +131,6 @@ const tabItems = ref([
 		to: '/orders',
 		label: 'Orders',
 	},
-	//{
-	//	icon: 'material-symbols:notifications',
-	//	to: '/notifications',
-	//	chipped: true,
-	//	label: 'Notifications',
-	//},
 	{
 		icon: 'material-symbols:shopping-cart',
 		to: '/cart',

@@ -26,4 +26,8 @@
 
 <script setup lang="ts">
 const open = defineModel('open', { default: false })
+
+defineShortcuts({
+	escape: () => (open.value = false),
+})
 </script>
