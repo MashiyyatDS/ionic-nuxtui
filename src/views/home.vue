@@ -14,64 +14,18 @@
 		</template>
 
 		<div class="col-span-12" v-for="(user, key) in users" :key="key">
-			<UCard
-				@click="console.log(user)"
-				class="bg-neutral-800 rounded-none"
-				:ui="{
-					header: 'sm:p-2 p-2 flex justify-between',
-					body: 'sm:p-2 p-2',
-				}">
-				<template #header>
-					<div class="flex gap-2">
-						<UAvatar
-							class="self-center"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZhCJ4xNURzbEMW0v6DR5liYUJ96PkQGB9PSfL3gWBvziLDLZjVwkcXFz96-7zFEZR5uw&usqp=CAU" />
-						<div class="flex flex-col">
-							<span class="text-bold text-primary">{{ user.name }}</span>
-							<span class="text-xs text-dimmed">{{ user.email }}</span>
-						</div>
-					</div>
-
-					<UIcon
-						:name="
-							user.verified
-								? 'material-symbols-light:verified'
-								: 'material-symbols-light:verified-off-rounded'
-						"
-						:class="[
-							'text-[25px] self-center',
-							user.verified ? 'text-primary' : 'text-dimmed',
-						]" />
-				</template>
-
-				<template #default>
-					<div class="flex justify-between">
-						<span class="text-sm">Contact</span>
-						<span class="text-sm text-dimmed">{{ user.contact }}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="text-sm font-bold">Address</span>
-						<span class="text-sm text-dimmed">{{ user.address }}</span>
-					</div>
-				</template>
-			</UCard>
+			<UserCard :user="user" @user-selected="selectUser(user)" />
 		</div>
+
+		<UserDialog v-model:user="selectedUser" v-model:open="open" />
 	</div>
 </template>
 
 <script setup lang="ts">
-export interface User {
-	id: number
-	name: string
-	email: string
-	address: string
-	contact: string
-	verified: boolean
-	registered_at: string
-}
+import type { User } from '@/types'
 
-const users = ref<User[]>([])
 const loading = ref(true)
+const users = ref<User[]>([])
 const getUsers = async () => {
 	try {
 		const responseJson = await fetch('https://retoolapi.dev/Xb77XU/data')
@@ -84,6 +38,13 @@ const getUsers = async () => {
 	} catch {
 		console.error('GetUsers: Something went wrong')
 	}
+}
+
+const open = ref(false)
+const selectedUser = ref<User | undefined>()
+const selectUser = (user: User) => {
+	selectedUser.value = user
+	open.value = true
 }
 
 onMounted(() => getUsers())

@@ -25,6 +25,7 @@ declare module 'vue' {
     UDashboardGroup: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardGroup.vue')['default']
     UDashboardPanel: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardPanel.vue')['default']
     UDashboardSidebar: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardSidebar.vue')['default']
+    UDrawer: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Drawer.vue')['default']
     UEmpty: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Empty.vue')['default']
     UFormField: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/FormField.vue')['default']
     UIcon: typeof import('./node_modules/@nuxt/ui/dist/runtime/vue/components/Icon.vue')['default']
@@ -33,6 +34,8 @@ declare module 'vue' {
     UNavigationMenu: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/NavigationMenu.vue')['default']
     UPageCard: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/PageCard.vue')['default']
     UPageList: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/PageList.vue')['default']
+    UserCard: typeof import('./src/components/User/UserCard.vue')['default']
+    UserDialog: typeof import('./src/components/User/UserDialog.vue')['default']
     USkeleton: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Skeleton.vue')['default']
     UUser: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/User.vue')['default']
   }
@@ -53,6 +56,7 @@ declare global {
   const UDashboardGroup: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardGroup.vue')['default']
   const UDashboardPanel: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardPanel.vue')['default']
   const UDashboardSidebar: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/DashboardSidebar.vue')['default']
+  const UDrawer: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Drawer.vue')['default']
   const UEmpty: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Empty.vue')['default']
   const UFormField: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/FormField.vue')['default']
   const UIcon: typeof import('./node_modules/@nuxt/ui/dist/runtime/vue/components/Icon.vue')['default']
@@ -61,6 +65,8 @@ declare global {
   const UNavigationMenu: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/NavigationMenu.vue')['default']
   const UPageCard: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/PageCard.vue')['default']
   const UPageList: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/PageList.vue')['default']
+  const UserCard: typeof import('./src/components/User/UserCard.vue')['default']
+  const UserDialog: typeof import('./src/components/User/UserDialog.vue')['default']
   const USkeleton: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/Skeleton.vue')['default']
   const UUser: typeof import('./node_modules/@nuxt/ui/dist/runtime/components/User.vue')['default']
 }
