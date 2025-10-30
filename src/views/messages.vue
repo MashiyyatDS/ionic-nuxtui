@@ -1,12 +1,12 @@
 <template>
-	<div class="messages-container h-full">
+	<div class="messages-container h-full w-screen">
 		<div class="p-2 border-b border-default">
 			<span class="font-semibold">Messages</span>
 		</div>
 
 		<UPageList>
 			<UPageCard
-				@click="selectedUser = user"
+				@click="selectUser(user)"
 				v-for="(user, index) in users"
 				:key="index"
 				variant="ghost"
@@ -30,6 +30,10 @@
 				</template>
 			</UPageCard>
 		</UPageList>
+
+		<template v-if="selectedUser">
+			<MessageDialog :user="selectedUser" v-model:open="open" />
+		</template>
 	</div>
 </template>
 
@@ -94,4 +98,10 @@ const users = ref([
 		},
 	},
 ])
+
+const open = ref(false)
+const selectUser = (user: User) => {
+	selectedUser.value = user
+	open.value = true
+}
 </script>

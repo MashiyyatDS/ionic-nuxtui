@@ -1,16 +1,19 @@
 <template>
 	<div class="messages-container">
-		<div class="p-2 border-b border-default">
-			<span class="font-semibold">Profile</span>
-		</div>
+		<div class="h-full flex flex-col p-3 gap-3">
+			<UPageHeader
+				description="A responsive page header with title, description and actions."
+				:links="links">
+				<template #title>
+					<UAvatar
+						class="mr-3"
+						size="xl-[5px]"
+						src="https://media.licdn.com/dms/image/v2/D5603AQELfgzipMJ8cQ/profile-displayphoto-shrink_100_100/profile-displayphoto-shrink_100_100/0/1732012492768?e=1763596800&v=beta&t=mNwlbNn4yNVF_Y5PM9_ujvINLpicAIVswyfzVye8Ojw" />
+					<span>Mashiyyat D.S.</span>
+				</template>
+			</UPageHeader>
 
-		<div class="h-full flex flex-col gap-3 p-3">
-			<UEmpty
-				icon="material-symbols:fastfood"
-				title="No items found"
-				description="It looks like you haven't any items inside your cart." />
-
-			<UButton label="Settings" class="self-center" @click="drawer = !drawer" />
+			<UButton label="Settings" class="self-end" @click="drawer = !drawer" />
 		</div>
 
 		<UDrawer direction="bottom" v-model:open="drawer" title="Settings">
@@ -67,6 +70,24 @@ const items = ref<NavigationMenuItem[][]>([
 			to: '/',
 		},
 	],
+])
+
+const links = ref([
+	{
+		label: 'Edit this page',
+		icon: 'i-lucide-file-pen',
+		to: 'https://github.com/nuxt/ui/blob/v4/docs/content/3.components/page-links.md',
+	},
+	{
+		label: 'Star on GitHub',
+		icon: 'i-lucide-star',
+		to: 'https://github.com/nuxt/ui',
+	},
+	{
+		label: 'Releases',
+		icon: 'i-lucide-rocket',
+		to: 'https://github.com/nuxt/ui/releases',
+	},
 ])
 
 const drawer = ref(false)
