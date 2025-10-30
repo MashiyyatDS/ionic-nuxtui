@@ -1,5 +1,5 @@
 <template>
-	<UCard v-if="user" class="top-0 absolute h-full z-1" :ui="{ body: 'sm:p-0 p-0' }">
+	<UCard v-if="user" class="top-0 absolute h-full z-1" :ui="{ body: 'sm:p-0 p-0 h-full' }">
 		<div class="message">
 			<div class="message-header border-b border-default flex justify-between gap-3 px-3">
 				<div class="flex gap-2">
@@ -129,18 +129,26 @@ defineShortcuts({
 
 <style scoped lang="scss">
 .message {
-	height: 100vh;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+	min-height: 0;
 
 	&-header {
 		height: 70px;
+		flex: 0 0 70px;
 	}
+
 	&-actions {
 		height: 50px;
+		flex: 0 0 50px;
 	}
 
 	&-body {
-		height: calc(100% - 120px);
+		flex: 1 1 auto;
+		min-height: 0;
 		overflow: auto;
+		height: calc(100% - 120px);
 	}
 }
 </style>
