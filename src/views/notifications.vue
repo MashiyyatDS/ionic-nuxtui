@@ -1,5 +1,5 @@
 <template>
-	<div class="messages-container h-full">
+	<div class="messages-container">
 		<div class="p-2 border-b border-default">
 			<span class="font-semibold">Notifications</span>
 		</div>

@@ -13,7 +13,7 @@
 			</template>
 		</UDashboardSidebar>
 
-		<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 h-full bg-neutral-900' }">
+		<UDashboardPanel :ui="{ body: 'sm:p-0 p-0 h-[100%] bg-neutral-900' }">
 			<template #header>
 				<div class="border-b border-default">
 					<div class="flex gap-1 p-2">
@@ -50,8 +50,12 @@
 				</div>
 			</template>
 
-			<template #body>
-				<RouterView />
+			<template #body
+				><RouterView v-slot="{ Component }">
+					<Transition name="fade" mode="out-in">
+						<component :is="Component" />
+					</Transition>
+				</RouterView>
 			</template>
 
 			<template #footer>
@@ -123,7 +127,7 @@ const items = ref<NavigationMenuItem[][]>([
 const tabItems = ref([
 	{
 		icon: 'material-symbols-light:house-rounded',
-		to: '/',
+		to: '/home',
 		label: 'Home',
 	},
 	{
@@ -140,3 +144,14 @@ const tabItems = ref([
 
 const open = ref(false)
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+</style>

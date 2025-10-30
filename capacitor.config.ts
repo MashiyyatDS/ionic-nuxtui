@@ -1,9 +1,12 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import type { CapacitorConfig } from '@capacitor/cli'
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'md-project',
-  webDir: 'dist'
-};
+	appId: 'md.project.00001',
+	appName: 'md-project',
+	webDir: 'dist',
+	android: {
+		adjustMarginsForEdgeToEdge: 'auto',
+	},
+}
 
-export default config;
+export default config

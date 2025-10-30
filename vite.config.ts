@@ -56,7 +56,9 @@ export default defineConfig({
 			},
 			colorMode: true,
 		}),
-		legacy(),
+		legacy({
+			renderLegacyChunks: false,
+		}),
 	],
 	resolve: {
 		alias: {
@@ -66,5 +68,16 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
+	},
+	optimizeDeps: {
+		esbuildOptions: {
+			target: 'es2020',
+			define: {
+				global: 'globalThis',
+			},
+			supported: {
+				bigint: true,
+			},
+		},
 	},
 })

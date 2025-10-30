@@ -13,7 +13,7 @@
 		</template>
 
 		<template #footer>
-			<UButton label="Submit Button" />
+			<UButton label="Logout" to="/" />
 		</template>
 	</UCard>
 </template>

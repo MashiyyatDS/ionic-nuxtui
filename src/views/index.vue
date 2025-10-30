@@ -1,90 +1,73 @@
 <template>
-	<div class="grid grid-cols-12 gap-3 py-2">
-		<template v-if="loading">
-			<div class="col-span-12 p-2" v-for="loader in 6" :key="loader">
-				<div class="flex items-center gap-4">
-					<USkeleton class="h-12 w-12 rounded-full" />
+	<div class="flex flex-col items-center justify-center gap-4 p-4 h-screen">
+		<UPageCard class="w-full max-w-md self-center">
+			<UAuthForm
+				:schema="schema"
+				title="Login"
+				description="Enter your credentials to access your account."
+				icon="i-lucide-user"
+				:fields="fields"
+				:providers="providers"
+				@submit="onSubmit" />
 
-					<div class="grid gap-2">
-						<USkeleton class="h-4 w-[250px]" />
-						<USkeleton class="h-4 w-[200px]" />
-					</div>
-				</div>
-			</div>
-		</template>
-
-		<div class="col-span-12" v-for="(user, key) in users" :key="key">
-			<UCard
-				@click="console.log(user)"
-				class="bg-neutral-800 rounded-none"
-				:ui="{
-					header: 'sm:p-2 p-2 flex justify-between',
-					body: 'sm:p-2 p-2',
-				}">
-				<template #header>
-					<div class="flex gap-2">
-						<UAvatar
-							class="self-center"
-							src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZhCJ4xNURzbEMW0v6DR5liYUJ96PkQGB9PSfL3gWBvziLDLZjVwkcXFz96-7zFEZR5uw&usqp=CAU" />
-						<div class="flex flex-col">
-							<span class="text-bold text-primary">{{ user.name }}</span>
-							<span class="text-xs text-dimmed">{{ user.email }}</span>
-						</div>
-					</div>
-
-					<UIcon
-						:name="
-							user.verified
-								? 'material-symbols-light:verified'
-								: 'material-symbols-light:verified-off-rounded'
-						"
-						:class="[
-							'text-[25px] self-center',
-							user.verified ? 'text-primary' : 'text-dimmed',
-						]" />
-				</template>
-
-				<template #default>
-					<div class="flex justify-between">
-						<span class="text-sm">Contact</span>
-						<span class="text-sm text-dimmed">{{ user.contact }}</span>
-					</div>
-					<div class="flex justify-between">
-						<span class="text-sm font-bold">Address</span>
-						<span class="text-sm text-dimmed">{{ user.address }}</span>
-					</div>
-				</template>
-			</UCard>
-		</div>
+			<UButton label="Navigate" to="/home" block />
+		</UPageCard>
 	</div>
 </template>
 
 <script setup lang="ts">
-export interface User {
-	id: number
-	name: string
-	email: string
-	address: string
-	contact: string
-	verified: boolean
-	registered_at: string
+import * as z from 'zod'
+import type { FormSubmitEvent, AuthFormField } from '@nuxt/ui'
+
+const toast = useToast()
+
+const fields: AuthFormField[] = [
+	{
+		name: 'email',
+		type: 'email',
+		label: 'Email',
+		placeholder: 'Enter your email',
+		required: true,
+	},
+	{
+		name: 'password',
+		label: 'Password',
+		type: 'password',
+		placeholder: 'Enter your password',
+		required: true,
+	},
+	{
+		name: 'remember',
+		label: 'Remember me',
+		type: 'checkbox',
+	},
+]
+
+const providers = [
+	{
+		label: 'Google',
+		icon: 'i-simple-icons-google',
+		onClick: () => {
+			toast.add({ title: 'Google', description: 'Login with Google' })
+		},
+	},
+	{
+		label: 'GitHub',
+		icon: 'i-simple-icons-github',
+		onClick: () => {
+			toast.add({ title: 'GitHub', description: 'Login with GitHub' })
+		},
+	},
+]
+
+const schema = z.object({
+	email: z.email('Invalid email'),
+	password: z.string('Password is required').min(8, 'Must be at least 8 characters'),
+})
+
+type Schema = z.output<typeof schema>
+
+function onSubmit(payload: FormSubmitEvent<Schema>) {
+	console.log('Submitted', payload)
 }
-
-const users = ref<User[]>([])
-const loading = ref(true)
-const getUsers = async () => {
-	try {
-		const responseJson = await fetch('https://retoolapi.dev/Xb77XU/data')
-
-		const response = await responseJson.json()
-
-		users.value = response
-
-		loading.value = false
-	} catch {
-		console.error('GetUsers: Something went wrong')
-	}
-}
-
-onMounted(() => getUsers())
 </script>

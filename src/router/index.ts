@@ -1,24 +1,17 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router'
 import { RouteRecordRaw } from 'vue-router'
 
-const modules = ['profile', 'messages', 'notifications', 'orders', 'cart']
+const modules = ['profile', 'messages', 'notifications', 'orders', 'cart', 'home']
 const routes: Array<RouteRecordRaw> = [
 	{
 		path: '/login',
 		name: 'login-page',
 		component: () => import('@/views/login.vue'),
 	},
-
 	{
 		path: '/',
-		component: () => import('@/layouts/DefaultLayout.vue'),
-		children: [
-			{
-				path: '',
-				name: `index-page`,
-				component: () => import('@/views/index.vue'),
-			},
-		],
+		name: `index-page`,
+		component: () => import('@/views/index.vue'),
 	},
 	...modules.map((module) => ({
 		path: `/${module}`,
